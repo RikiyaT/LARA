@@ -14,7 +14,7 @@ Run the evaluation scripts as follows:
 python src/test-al.py Ours Random Naive Pool MTF OursGroup[N]
 ```
 
-### 🔸 Graded Relevance (0/1/2 labels)
+### 🔸 Graded Relevance (0~k labels)
 
 ```bash
 python src/test-al-graded.py Ours Random Naive Pool MTF OursGroup[N]
@@ -44,10 +44,10 @@ topic_id,doc_id,annotation,prob_yes,prob_no
 ### Graded Relevance Format:
 
 ```csv
-topic_id,doc_id,annotation,prob_0,prob_1,prob_2
+topic_id,doc_id,annotation,prob_0,...,prob_k
 ```
 
-- `annotation`: Predicted graded label (0–2).
+- `annotation`: Predicted graded label (0–k).
 - `prob_n`: Confidence for label `n`.
 
 📌 **Example Implementations** (using [TREC-COVID from BEIR](https://huggingface.co/datasets/BeIR/trec-covid-qrels)):
@@ -59,13 +59,12 @@ topic_id,doc_id,annotation,prob_0,prob_1,prob_2
 
 ## 📝 Prompt Templates
 
-LARA supports three distinct prompt styles for eliciting relevance judgments from LLMs:
-
+We tested the following prompts in the paper:
 - 📘 **Simple Prompt**
 - 🔧 **Utility Prompt** based on [[Thomas et al., 2024]](https://arxiv.org/abs/2309.10621)
 - 📙 **Rational Prompt** based on [[Upadhyay et al., 2024]](https://arxiv.org/abs/2411.08275)
 
-## 📖 Detailed Prompt Descriptions
+{description} and {narrative} are given by the NIST assessors.
 
 ### 🔹 Binary Relevance (0/1)
 
@@ -136,17 +135,11 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Your answer:**
 
-*Inspired by rational prompt style from [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
+*Based on rational prompt style from [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
 
 ---
 
-### 🔸 Graded Relevance (0–2)
-
-These prompts produce graded labels:
-
-- **2**: Highly relevant
-- **1**: Somewhat relevant
-- **0**: Not relevant
+### 🔸 Graded Relevance (example with k=2)
 
 #### 📘 **Simple Prompt (Graded)**
 
@@ -215,7 +208,7 @@ These prompts produce graded labels:
 >
 > **Relevance Score:** {
 
-*Inspired by rational prompts in [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
+*Based on rational prompts in [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
 
 ---
 
