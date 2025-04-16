@@ -1,6 +1,8 @@
 # LARA: LLM-Assisted Relevance Annotation
 
-LARA is a flexible framework that leverages **large language models (LLMs)** for active learning and relevance annotation calibration. It supports both **binary relevance** and **graded relevance** annotation tasks, enabling efficient creation of high-quality test collections.
+LARA is a flexible framework that leverages **large language models (LLMs)** for active learning and relevance annotation calibration to efficiently create of high-quality test collections.
+
+Paper: [_LLM-Assisted Relevance Assessments: When Should We Ask LLMs for Help?_](https://arxiv.org/abs/2411.06877) (SIGIR 2025 Full Paper)
 
 ---
 
@@ -90,7 +92,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 
 ---
 
-#### 🔧 **Utility Prompt (Binary)** [Thomas et al., 2024]
+#### 🔧 **Utility Prompt (Binary)**
 
 > Given a query and web page, provide a **Yes** or **No** answer indicating relevance.
 >
@@ -116,7 +118,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 
 ---
 
-#### 📙 **Rational Prompt (Binary)** [Upadhyay et al., 2024]
+#### 📙 **Rational Prompt (Binary)**
 
 > You're an expert content judge. Use commonsense reasoning to determine relevance.
 >
@@ -160,7 +162,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 
 ---
 
-#### 🔧 **Utility Prompt (Graded)** [Thomas et al., 2024]
+#### 🔧 **Utility Prompt (Graded)**
 
 > Given a query and web page, provide a relevance score:
 >
@@ -188,7 +190,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 
 ---
 
-#### 📙 **Rational Prompt (Graded)** [Upadhyay et al., 2024]
+#### 📙 **Rational Prompt (Graded)**
 
 > You're an expert judge. Use commonsense reasoning to determine relevance:
 >
