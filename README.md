@@ -1,4 +1,4 @@
-# LARA: LLM-Assisted Relevance Annotation
+# LARA: LLM-Assisted Relevance Assessments
 
 LARA is a flexible framework that leverages **large language models (LLMs)** for active learning and relevance annotation calibration to efficiently create of high-quality test collections.
 
