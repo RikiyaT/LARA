@@ -2,7 +2,9 @@
 
 LARA is a flexible framework that leverages **large language models (LLMs)** for active learning and relevance annotation calibration to efficiently create of high-quality test collections.
 
-Paper: [_LLM-Assisted Relevance Assessments: When Should We Ask LLMs for Help?_](https://arxiv.org/abs/2411.06877) (SIGIR 2025 Full Paper)
+Paper: [_LLM-Assisted Relevance Assessments: When Should We Ask LLMs for Help?_](https://arxiv.org/abs/2411.06877) (SIGIR 2025 Full Paper).
+
+See the [here](docs/proof.md) for the proof omitted in the paper.
 
 ---
 
@@ -52,7 +54,7 @@ topic_id,doc_id,annotation,prob_0,...,prob_k
 - `annotation`: Predicted graded label (0–k).
 - `prob_n`: Confidence for label `n`.
 
-📌 **Example Implementations** (using [TREC-COVID from BEIR](https://huggingface.co/datasets/BeIR/trec-covid-qrels)):
+📌 **Example Implementations** (using [TREC-COVID from BEIR](https://huggingface.co/datasets/BeIR/trec-covid-qrels)[3]):
 
 - Binary relevance example: `src/example-covid-itachi.py`
 - Graded relevance example: `src/example-covid-itachi-graded.py`
@@ -63,8 +65,8 @@ topic_id,doc_id,annotation,prob_0,...,prob_k
 
 We tested the following prompts in the paper:
 - 📘 **Simple Prompt**
-- 🔧 **Utility Prompt** based on [[Thomas et al., 2024]](https://arxiv.org/abs/2309.10621)
-- 📙 **Rational Prompt** based on [[Upadhyay et al., 2024]](https://arxiv.org/abs/2411.08275)
+- 🔧 **Utility Prompt** based on [[Thomas et al., 2024]](https://arxiv.org/abs/2309.10621) [2]
+- 📙 **Rational Prompt** based on [[Upadhyay et al., 2024]](https://arxiv.org/abs/2411.08275) [1]
 
 {description} and {narrative} are given by the NIST assessors.
 
@@ -114,7 +116,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Your answer:**
 
-*Based on the utility framing by [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*
+*Based on the utility framing by [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*[2]
 
 ---
 
@@ -137,7 +139,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Your answer:**
 
-*Based on rational prompt style from [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
+*Based on rational prompt style from [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*[1]
 
 ---
 
@@ -186,7 +188,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Relevance Score:** {
 
-*Based on the utility approach from [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*
+*Based on the utility approach from [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*[2]
 
 ---
 
@@ -210,19 +212,14 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Relevance Score:** {
 
-*Based on rational prompts in [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
+*Based on rational prompts in [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).* [1]
 
 ---
 
 ## 📚 References
 
-If you use or refer to LARA, please cite the following papers associated with the prompt templates:
+[1] Shivani Upadhyay et al. (2024). "A Large-Scale Study of Relevance Assessments with Large Language Models: An Initial Look." arXiv: [2411.08275](https://arxiv.org/abs/2411.08275).
+ 
+[2] Paul Thomas et al. (2024). "Large language models can accurately predict searcher preferences." arXiv: [2309.10621](https://arxiv.org/abs/2309.10621).
 
-- Rational prompts:  
-  > Shivani Upadhyay et al. (2024). "A Large-Scale Study of Relevance Assessments with Large Language Models: An Initial Look." arXiv: [2411.08275](https://arxiv.org/abs/2411.08275).
-
-- Utility prompts:  
-  > Paul Thomas et al. (2024). "Large language models can accurately predict searcher preferences." arXiv: [2309.10621](https://arxiv.org/abs/2309.10621).
-
-- TREC-COVID dataset used in the example (from BEIR):  
-  > [https://huggingface.co/datasets/BeIR/trec-covid-qrels](https://huggingface.co/datasets/BeIR/trec-covid-qrels)
+[3] TREC-COVID dataset used in the example (from BEIR):  [https://huggingface.co/datasets/BeIR/trec-covid-qrels](https://huggingface.co/datasets/BeIR/trec-covid-qrels)
