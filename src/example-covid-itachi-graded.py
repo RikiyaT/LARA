@@ -21,7 +21,7 @@ def get_specified_gpus():
     return []
 
 def load_model_and_tokenizer():
-    model_name = "meta-llama/Llama-3.1-70B-Instruct"
+    model_name = "meta-llama/Llama-3.1-8B-Instruct"
     cache_dir = "/path/to/model/cache"  # Changed to generic path
     # make cache_dir if it does not exist
     os.makedirs(cache_dir, exist_ok=True)

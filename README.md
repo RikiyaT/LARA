@@ -41,9 +41,9 @@ topic_id,doc_id,annotation,prob_yes,prob_no
 
 - `topic_id`: ID of the query/topic.
 - `doc_id`: Document identifier.
-- `annotation`: Predicted binary label (0 or 1).
-- `prob_yes`: Confidence that the label is relevant (1).
-- `prob_no`: Confidence that the label is not relevant (0).
+- `annotation`: Human-annotated label (0 or 1).
+- `prob_yes`: LLM's confidence that the label is relevant (1).
+- `prob_no`: LLM's confidence that the label is not relevant (0).
 
 ### Graded Relevance Format:
 
@@ -51,10 +51,10 @@ topic_id,doc_id,annotation,prob_yes,prob_no
 topic_id,doc_id,annotation,prob_0,...,prob_k
 ```
 
-- `annotation`: Predicted graded label (0–k).
-- `prob_n`: Confidence for label `n`.
+- `annotation`: Human-annotated label (0–k).
+- `prob_n`: LLM's confidence for label `n`.
 
-📌 **Example Implementations** (using [TREC-COVID from BEIR](https://huggingface.co/datasets/BeIR/trec-covid-qrels)[3]):
+📌 **Example Implementations** (using [TREC-COVID from BEIR](https://huggingface.co/datasets/BeIR/trec-covid-qrels) on [Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct)):
 
 - Binary relevance example: `src/example-covid-itachi.py`
 - Graded relevance example: `src/example-covid-itachi-graded.py`
@@ -65,8 +65,8 @@ topic_id,doc_id,annotation,prob_0,...,prob_k
 
 We tested the following prompts in the paper:
 - 📘 **Simple Prompt**
-- 🔧 **Utility Prompt** based on [[Thomas et al., 2024]](https://arxiv.org/abs/2309.10621) [2]
-- 📙 **Rational Prompt** based on [[Upadhyay et al., 2024]](https://arxiv.org/abs/2411.08275) [1]
+- 🔧 **Utility Prompt** based on [[Thomas et al., 2024]](https://arxiv.org/abs/2309.10621)
+- 📙 **Rational Prompt** based on [[Upadhyay et al., 2024]](https://arxiv.org/abs/2411.08275)
 
 {description} and {narrative} are given by the NIST assessors.
 
@@ -116,7 +116,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Your answer:**
 
-*Based on the utility framing by [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*[2]
+*Based on the utility framing by [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*
 
 ---
 
@@ -139,7 +139,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Your answer:**
 
-*Based on rational prompt style from [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*[1]
+*Based on rational prompt style from [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
 
 ---
 
@@ -188,7 +188,7 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Relevance Score:** {
 
-*Based on the utility approach from [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*[2]
+*Based on the utility approach from [Thomas et al. (2024)](https://arxiv.org/abs/2309.10621).*
 
 ---
 
@@ -212,14 +212,12 @@ These prompts produce **Yes (1)** or **No (0)** responses.
 >
 > **Relevance Score:** {
 
-*Based on rational prompts in [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).* [1]
+*Based on rational prompts in [Upadhyay et al. (2024)](https://arxiv.org/abs/2411.08275).*
 
 ---
 
 ## 📚 References
 
-[1] Shivani Upadhyay et al. (2024). "A Large-Scale Study of Relevance Assessments with Large Language Models: An Initial Look." arXiv: [2411.08275](https://arxiv.org/abs/2411.08275).
+- Shivani Upadhyay et al. (2024). "A Large-Scale Study of Relevance Assessments with Large Language Models: An Initial Look." arXiv: [2411.08275](https://arxiv.org/abs/2411.08275).
  
-[2] Paul Thomas et al. (2024). "Large language models can accurately predict searcher preferences." arXiv: [2309.10621](https://arxiv.org/abs/2309.10621).
-
-[3] TREC-COVID dataset used in the example (from BEIR):  [https://huggingface.co/datasets/BeIR/trec-covid-qrels](https://huggingface.co/datasets/BeIR/trec-covid-qrels)
+- Paul Thomas et al. (2024). "Large language models can accurately predict searcher preferences." arXiv: [2309.10621](https://arxiv.org/abs/2309.10621).
