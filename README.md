@@ -4,7 +4,7 @@ LARA is a flexible framework that leverages **large language models (LLMs)** for
 
 Paper: [_LLM-Assisted Relevance Assessments: When Should We Ask LLMs for Help?_](https://arxiv.org/abs/2411.06877) (SIGIR 2025 Full Paper).
 
-See the [here](docs/proof.md) for the proof omitted in the paper.
+See [here](docs/proof.md) for proofs omitted in the paper.
 
 ---
 
